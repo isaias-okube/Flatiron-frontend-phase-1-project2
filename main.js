@@ -14,7 +14,6 @@ function getGames() {
 }
 
 function renderGameOptions(games) {
-    console.log(games);
     games.forEach(game => {
         const option = document.createElement('option');
         option.value = game.name;
