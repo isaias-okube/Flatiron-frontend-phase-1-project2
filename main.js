@@ -49,7 +49,7 @@ function getAmiibosByGame(event) {
     const gameName = event.target.value;
     fetch(`https://www.amiiboapi.com/api/amiibo/?amiiboSeries=${gameName}`)
         .then(res => res.json())
-        .then(amiibos => renderAmiibos(amiibos.amiibo))
+        .then(amiibos => renderAllAmiibos(amiibos.amiibo))
         .catch(error => alert(error));
 }
 
@@ -57,6 +57,21 @@ function getAmiiboByName(event) {
     const amiiboName = event.target.value;
     fetch(`https://www.amiiboapi.com/api/amiibo/?name=${amiiboName}`)
         .then(res => res.json())
-        .then(amiibos => renderAmiibos(amiibos.amiibo))
+        .then(amiibos => renderAllAmiibos(amiibos.amiibo))
         .catch(error => alert(error));
 }
+
+function renderAllAmiibos(amiibos) {
+    amiibos.forEach(amiibo => {
+        renderAmiiboCard(amiibo);
+    });
+    gameSelect.value = '';
+    amiiboSelect.value = '';
+}
+
+function renderAmiiboCard(amiibo) {
+    console.log(amiibo);
+    const {ammiiboSeries, character, gameSeries, image} = amiibo;
+    const card = document.createElement('div');
+}
+
