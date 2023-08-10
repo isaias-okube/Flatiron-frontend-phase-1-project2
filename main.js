@@ -23,14 +23,14 @@ function getGames() {
 function getAmiibos() {
     fetch('https://www.amiiboapi.com/api/amiibo/?name=mario')
         .then(res => res.json())
-        .then(amiibos => renderAmiibos(amiibos.amiibo))
+        .then(amiibos => renderAmiibosOptions(amiibos.amiibo))
         .catch()
 }
 
 function getAmiibosByName() {
     fetch('https://www.amiiboapi.com/api/amiibo/?name=mario')
         .then(res => res.json())
-        .then(amiibos => renderAmiibos(amiibos.amiibo))
+        .then(amiibos => renderAmiibosOptions(amiibos.amiibo))
         .catch()
 }
 
@@ -43,7 +43,7 @@ function renderGameOptions(games) {
     });
 }
 
-function renderAmiibos(amiibos) {
+function renderAmiibosOptions(amiibos) {
     amiibos.forEach(amiibo => {
         const option = document.createElement('option');
         option.value = amiibo.name;
@@ -53,16 +53,16 @@ function renderAmiibos(amiibos) {
 }
 
 // Event handler functions
-function getAmiibosByGame(e) {
-    const game = e.target.value;
+function getAmiibosByGame() {
+    const game = gameSelect.value;
     fetch(`https://www.amiiboapi.com/api/amiibo/?amiiboSeries=${game}`)
         .then(res => res.json())
         .then(amiibos => renderAllAmiibos(amiibos.amiibo))
         .catch()
 }
 
-function getAmiiboByName(e) {
-    const amiibo = e.target.value;
+function getAmiibosByName() {
+    const amiibo = amiiboSelect.value;
     fetch(`https://www.amiiboapi.com/api/amiibo/?name=${amiibo}`)
         .then(res => res.json())
         .then(amiibos => renderAllAmiibos(amiibos.amiibo))
