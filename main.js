@@ -2,6 +2,7 @@
 // Elements
 const gameSelect = document.querySelector('#games');
 const amiiboSelect = document.querySelector('#amiibos');
+const amiiboContainer = document.querySelector('.amiibo-container');
 
 // Function calls
 getGames();
@@ -9,21 +10,28 @@ getAmiibos();
 
 // Event listeners
 gameSelect.addEventListener('change', getAmiibosByGame);
-amiiboSelect.addEventListener('change', getAmiiboByName);
+amiiboSelect.addEventListener('change', getAmiibosByName);
 
 //  Drop down Functions
 function getGames() {
     fetch('https://www.amiiboapi.com/api/amiiboseries/')
         .then(res => res.json())
         .then(games => renderGameOptions(games.amiibo))
-        .catch(error => alert(error));
+        .catch()
 }
 
 function getAmiibos() {
     fetch('https://www.amiiboapi.com/api/amiibo/?name=mario')
         .then(res => res.json())
-        .then(amiibos => renderAmiibosOptions(amiibos.amiibo))
-        .catch(error => alert(error));
+        .then(amiibos => renderAmiibos(amiibos.amiibo))
+        .catch()
+}
+
+function getAmiibosByName() {
+    fetch('https://www.amiiboapi.com/api/amiibo/?name=mario')
+        .then(res => res.json())
+        .then(amiibos => renderAmiibos(amiibos.amiibo))
+        .catch()
 }
 
 function renderGameOptions(games) {
@@ -31,47 +39,59 @@ function renderGameOptions(games) {
         const option = document.createElement('option');
         option.value = game.name;
         option.textContent = game.name;
-        gameSelect.appendChild(option);
+        gameSelect.append(option);
     });
 }
 
-function renderAmiibosOptions(amiibos) {
+function renderAmiibos(amiibos) {
     amiibos.forEach(amiibo => {
         const option = document.createElement('option');
         option.value = amiibo.name;
         option.textContent = amiibo.name;
-        amiiboSelect.appendChild(option);
+        amiiboSelect.append(option);
     });
 }
 
 // Event handler functions
-function getAmiibosByGame(event) {
-    const gameName = event.target.value;
-    fetch(`https://www.amiiboapi.com/api/amiibo/?amiiboSeries=${gameName}`)
+function getAmiibosByGame(e) {
+    const game = e.target.value;
+    fetch(`https://www.amiiboapi.com/api/amiibo/?amiiboSeries=${game}`)
         .then(res => res.json())
         .then(amiibos => renderAllAmiibos(amiibos.amiibo))
-        .catch(error => alert(error));
+        .catch()
 }
 
-function getAmiiboByName(event) {
-    const amiiboName = event.target.value;
-    fetch(`https://www.amiiboapi.com/api/amiibo/?name=${amiiboName}`)
+function getAmiiboByName(e) {
+    const amiibo = e.target.value;
+    fetch(`https://www.amiiboapi.com/api/amiibo/?name=${amiibo}`)
         .then(res => res.json())
         .then(amiibos => renderAllAmiibos(amiibos.amiibo))
-        .catch(error => alert(error));
+        .catch()
 }
 
 function renderAllAmiibos(amiibos) {
+    amiiboContainer.replaceChildren()
     amiibos.forEach(amiibo => {
-        renderAmiiboCard(amiibo);
+        renderAmiibosCard(amiibo);
     });
     gameSelect.value = '';
     amiiboSelect.value = '';
 }
 
-function renderAmiiboCard(amiibo) {
-    console.log(amiibo);
+function renderAmiibosCard(amiibo) {
     const {ammiiboSeries, character, gameSeries, image} = amiibo;
-    const card = document.createElement('div');
-}
+    const cardDiv = document.createElement('div');
+    cardDiv.classList.add('card');
+    cardDiv.addEventListener('click', () => {
+        youtubelink = `https://www.youtube.com/results?search_query=${character}+amiibo`;
+        window.open(youtubelink, '_blank');
+    });
+    const cardImage = document.createElement('img');
+    cardImage.src = image;
+    
+    const title = document.createElement('h3');
+    title.textContent = character;
 
+    cardDiv.append(cardImage, title);
+    amiiboContainer.append(cardDiv);
+}

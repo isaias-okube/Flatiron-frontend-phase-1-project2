@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/modern-normalize@2.0.0/modern-normalize.min.css"
+    />
     <title>AmiiboAPI</title>
     <link rel="stylesheet" href="styles.css">
     <!--<script defer src="main.js"></script>-->
@@ -14,16 +18,25 @@
         <!-- search -->
         <section class="search">
             <select name="games" id="games">
-                <option value="">Select an Amiibo</option>
+                <option value="">search for a game...</option>
             </select>
             <select name="amiibos" id="amiibos">
                 <option value="">Select an Amiibo</option>
+            </select>
         </section>
-
-
-        <!-- -- -->
-            
     </header>
+    <!-- Welcome Section-->
+    <section class="welcome card">
+        <div class="message">
+            <h2 class="welcome-heading">Welcome to AmiiboAPI</h2>
+            <p>Search for your favorite game and find out which Amiibos are available!</p>
+        </div>
+    </section>
+        <!-- Amiibo Section-->
+        <section class="amiibo-section">
+            <h1 class="amiibo-title"></h1>
+            <div class="amiibo-container"></div>
+        </section>            
     <script src="main.js"></script>
 </body>
 </html>
