@@ -11,3 +11,39 @@ html {
     background-color: #e8e3e3;
     border-radius: 5px;
 }
+
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+  
+  .header {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+  
+}
+
+  .main-title {
+    font-size: 2rem;
+  
+}
+
+  .search {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+  
+}
+  
+
+  .welcome {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 600px;
+    text-align: center;
+}
