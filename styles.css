@@ -125,3 +125,10 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* Desktop styles */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .welcome {
+    grid-template-columns: 1fr;
+  }
+}
