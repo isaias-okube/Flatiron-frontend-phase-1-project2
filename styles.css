@@ -111,3 +111,10 @@ body {
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
 }
+
+/* Mobile styles */
+@media (max-width: 767px) {
+  .welcome {
+    grid-template-columns: 1fr;
+  }
+}
