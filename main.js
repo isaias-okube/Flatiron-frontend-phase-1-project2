@@ -87,9 +87,12 @@ function renderAmiibosCard(amiibo) {
     });
     const cardImage = document.createElement('img');
     cardImage.src = image;
+    // cardImage.alt = character;
+    // cardImage.classList.add('card-image');
     
     const title = document.createElement('h3');
     title.textContent = character;
+    title.classList.add('card-title');
 
     cardDiv.append(cardImage, title);
     amiiboContainer.append(cardDiv);
