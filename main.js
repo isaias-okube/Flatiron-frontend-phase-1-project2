@@ -96,10 +96,10 @@ function renderAmiibosCard(amiibo) {
     title.classList.add('card-title');
 
     const game = document.createElement('p');
-    //game.textContent = gameSeries;
+    game.textContent = gameSeries;
     game.classList.add('card-game');
 
 
-    cardDiv.append(cardImage, title,character);
+    cardDiv.append(cardImage, title,character, game);
     amiiboContainer.append(cardDiv);
 }
