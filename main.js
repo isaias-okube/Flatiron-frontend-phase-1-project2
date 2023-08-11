@@ -88,11 +88,17 @@ function renderAmiibosCard(amiibo) {
     const cardImage = document.createElement('img');
     cardImage.src = image;
     cardImage.alt = character;
-    // cardImage.classList.add('card-image');
+
+    cardImage.classList.add('card-image');
     
     const title = document.createElement('h3');
     title.textContent = character;
     title.classList.add('card-title');
+
+    const game = document.createElement('p');
+    //game.textContent = gameSeries;
+    game.classList.add('card-game');
+
 
     cardDiv.append(cardImage, title,character);
     amiiboContainer.append(cardDiv);
