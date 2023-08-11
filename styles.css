@@ -41,6 +41,12 @@ body {
   background-color: #e8e3e3;
 }
 
+.card:hover {
+  background-color: #fff;
+  border: solid 1px #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
 .card img,
 .amiibo-card img {
   max-width: 100%;

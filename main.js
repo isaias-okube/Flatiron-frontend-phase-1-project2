@@ -1,4 +1,3 @@
-//https://www.amiiboapi.com/api/amiibo/?name=mario
 // Elements
 const gameSelect = document.querySelector('#games');
 const amiiboSelect = document.querySelector('#amiibos');
