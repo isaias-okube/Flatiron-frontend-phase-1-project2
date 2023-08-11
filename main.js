@@ -101,6 +101,6 @@ function renderAmiibosCard(amiibo) {
     game.classList.add('card-game');
 
 
-    cardDiv.append(cardImage, title, character, gameSeries);
+    cardDiv.append(cardImage, character, gameSeries, title, game);
     amiiboContainer.append(cardDiv);
 }
