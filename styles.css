@@ -1,49 +1,103 @@
-html {
-    background-color: #f5f5f5;
-    font-family: 'Roboto', sans-serif;
-
-}
- .card {
-    max-width: 30%;
-    border: solid 1px #ccc;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #e8e3e3;
-    border-radius: 5px;
-}
+ 
+/* General Styles */
 
 body {
-    background-color: #f0f0f0;
-    font-family: Arial, sans-serif;
-}
-  
-  .header {
-    background-color: #333;
-    color: white;
-    padding: 1rem;
-    text-align: center;
-  
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-  .main-title {
-    font-size: 2rem;
-  
+/* Header Styles */
+
+.header {
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+  text-align: center;
 }
 
-  .search {
-    margin-top: 1rem;
-    display: flex;
-    justify-content: center;
-  
+.main-title {
+  font-size: 2rem;
 }
-  
 
-  .welcome {
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 2rem;
-    margin: 2rem auto;
-    max-width: 600px;
-    text-align: center;
+/* Card Styles */
+
+.card,
+.amiibo-card {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  margin: 1rem;
+  text-align: center;
+}
+
+.card {
+  max-width: 100%;
+  border: solid 1px #ccc;
+  background-color: #e8e3e3;
+}
+
+.card img,
+.amiibo-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+/* Welcome Section Styles */
+
+.welcome {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 90%;
+  text-align: center;
+}
+
+/* Search Section Styles */
+
+.search {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* Amiibo Section Styles */
+
+.amiibo-section {
+  margin: 2rem auto;
+  max-width: 90%;
+  text-align: center;
+}
+
+.amiibo-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 1rem;
+  justify-items: center;
+}
+
+/* Button Styles */
+
+.div-card a,
+.div-card .btn {
+  background-color: #333;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+/* Media Queries for Responsive Design */
+
+@media screen and (max-width: 768px) {
+  .amiibo-container {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
 }
