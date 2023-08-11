@@ -133,9 +133,3 @@ body {
   }
 }
 
-/* Large Desktop styles */
-@media (min-width: 1200px) {
-  .welcome {
-    grid-template-columns: 1fr;
-  }
-}
